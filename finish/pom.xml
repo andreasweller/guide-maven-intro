@@ -22,8 +22,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- end::encoding[] -->
         <!-- tag::java-version[] -->
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <!-- end::java-version[] -->
         <!-- Liberty configuration -->
         <!-- tag::default-http-port[] -->
@@ -37,25 +37,35 @@
     <!-- tag::dependencies[] -->
     <dependencies>
         <!-- Provided dependencies -->
+        <!-- tag::jakarta.jakartaee-api[] -->
         <dependency>
+            <!-- tag::groupID-api[] -->
             <groupId>jakarta.platform</groupId>
+            <!-- end::groupID-api[] -->
+            <!-- tag::artifactID-api[] -->
             <artifactId>jakarta.jakartaee-api</artifactId>
-            <version>8.0.0</version>
+            <!-- end::artifactID-api[] -->
+            <!-- tag::version-api[] -->
+            <version>10.0.0</version>
+            <!-- end::version-api[] -->
+            <!-- tag::scope-api[] -->
             <scope>provided</scope>
+            <!-- end::scope-api[] -->
         </dependency>
+        <!-- end::jakarta.jakartaee-api[] -->
         <dependency>
             <groupId>org.eclipse.microprofile</groupId>
             <artifactId>microprofile</artifactId>
-            <version>3.3</version>
+            <version>6.0</version>
             <type>pom</type>
             <scope>provided</scope>
         </dependency>
         <!-- For testing -->
         <!-- tag::commons-httpclient[] -->
         <dependency>
-            <groupId>commons-httpclient</groupId>
-            <artifactId>commons-httpclient</artifactId>
-            <version>3.1</version>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.14</version>
             <!-- tag::test1[] -->
             <scope>test</scope>
             <!-- end::test1[] -->
@@ -65,7 +75,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.6.2</version>
+            <version>5.9.2</version>
             <!-- tag::test2[] -->
             <scope>test</scope>
             <!-- end::test2[] -->
@@ -81,13 +91,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>3.2.3</version>
+                <version>3.3.2</version>
             </plugin>
             <!-- tag::liberty-maven-plugin[] -->
             <plugin>
                 <groupId>io.openliberty.tools</groupId>
                 <artifactId>liberty-maven-plugin</artifactId>
-                <version>3.2.3</version>
+                <version>3.8.2</version>
                 <!-- tag::configuration[] -->
                 <configuration>
                     <!-- tag::serverName[] -->
@@ -101,7 +111,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.22.2</version>
+                <version>3.0.0</version>
                 <configuration>
                     <!-- tag::system-property-variables[] -->
                     <systemPropertyVariables>
